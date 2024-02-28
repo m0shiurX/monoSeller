@@ -204,23 +204,23 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 49,
-                'title' => 'cupon_create',
+                'title' => 'coupon_create',
             ],
             [
                 'id'    => 50,
-                'title' => 'cupon_edit',
+                'title' => 'coupon_edit',
             ],
             [
                 'id'    => 51,
-                'title' => 'cupon_show',
+                'title' => 'coupon_show',
             ],
             [
                 'id'    => 52,
-                'title' => 'cupon_delete',
+                'title' => 'coupon_delete',
             ],
             [
                 'id'    => 53,
-                'title' => 'cupon_access',
+                'title' => 'coupon_access',
             ],
             [
                 'id'    => 54,

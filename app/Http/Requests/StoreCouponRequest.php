@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Cupon;
+use App\Models\Coupon;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
 
-class StoreCuponRequest extends FormRequest
+class StoreCouponRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('cupon_create');
+        return Gate::allows('coupon_create');
     }
 
     public function rules()

@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Cupon extends Model
+class Coupon extends Model
 {
     use SoftDeletes, HasFactory;
 
-    public $table = 'cupons';
+    public $table = 'coupons';
 
     protected $dates = [
         'valid_till',

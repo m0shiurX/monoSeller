@@ -51,9 +51,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('tos/destroy', 'TosController@massDestroy')->name('tos.massDestroy');
     Route::resource('tos', 'TosController');
 
-    // Cupon
-    Route::delete('cupons/destroy', 'CuponController@massDestroy')->name('cupons.massDestroy');
-    Route::resource('cupons', 'CuponController');
+    // Coupon
+    Route::delete('coupons/destroy', 'CouponController@massDestroy')->name('coupons.massDestroy');
+    Route::resource('coupons', 'CouponController');
 
     // Store Settings
     Route::delete('store-settings/destroy', 'StoreSettingsController@massDestroy')->name('store-settings.massDestroy');

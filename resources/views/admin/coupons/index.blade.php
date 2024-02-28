@@ -1,38 +1,38 @@
 @extends('layouts.admin')
 @section('content')
-@can('cupon_create')
+@can('coupon_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.cupons.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.cupon.title_singular') }}
+            <a class="btn btn-success" href="{{ route('admin.coupons.create') }}">
+                {{ trans('global.add') }} {{ trans('cruds.coupon.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.cupon.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.coupon.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-Cupon">
+            <table class=" table table-bordered table-striped table-hover datatable datatable-Coupon">
                 <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.cupon.fields.id') }}
+                            {{ trans('cruds.coupon.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.cupon.fields.code') }}
+                            {{ trans('cruds.coupon.fields.code') }}
                         </th>
                         <th>
-                            {{ trans('cruds.cupon.fields.valid_till') }}
+                            {{ trans('cruds.coupon.fields.valid_till') }}
                         </th>
                         <th>
-                            {{ trans('cruds.cupon.fields.valid_from') }}
+                            {{ trans('cruds.coupon.fields.valid_from') }}
                         </th>
                         <th>
                             &nbsp;
@@ -40,38 +40,38 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($cupons as $key => $cupon)
-                        <tr data-entry-id="{{ $cupon->id }}">
+                    @foreach($coupons as $key => $coupon)
+                        <tr data-entry-id="{{ $coupon->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $cupon->id ?? '' }}
+                                {{ $coupon->id ?? '' }}
                             </td>
                             <td>
-                                {{ $cupon->code ?? '' }}
+                                {{ $coupon->code ?? '' }}
                             </td>
                             <td>
-                                {{ $cupon->valid_till ?? '' }}
+                                {{ $coupon->valid_till ?? '' }}
                             </td>
                             <td>
-                                {{ $cupon->valid_from ?? '' }}
+                                {{ $coupon->valid_from ?? '' }}
                             </td>
                             <td>
-                                @can('cupon_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.cupons.show', $cupon->id) }}">
+                                @can('coupon_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.coupons.show', $coupon->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
-                                @can('cupon_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.cupons.edit', $cupon->id) }}">
+                                @can('coupon_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.coupons.edit', $coupon->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
-                                @can('cupon_delete')
-                                    <form action="{{ route('admin.cupons.destroy', $cupon->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('coupon_delete')
+                                    <form action="{{ route('admin.coupons.destroy', $coupon->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -96,11 +96,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('cupon_delete')
+@can('coupon_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.cupons.massDestroy') }}",
+    url: "{{ route('admin.coupons.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -131,12 +131,12 @@
     order: [[ 1, 'desc' ]],
     pageLength: 100,
   });
-  let table = $('.datatable-Cupon:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  let table = $('.datatable-Coupon:not(.ajaxTable)').DataTable({ buttons: dtButtons })
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

@@ -6,15 +6,15 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
-class CuponTest extends DuskTestCase
+class CouponTest extends DuskTestCase
 {
     public function testIndex()
     {
         $admin = App\Models\User::find(1);
         $this->browse(function (Browser $browser) use ($admin) {
             $browser->loginAs($admin);
-            $browser->visit(route('admin.cupon.index'));
-            $browser->assertRouteIs('admin.cupon.index');
+            $browser->visit(route('admin.coupon.index'));
+            $browser->assertRouteIs('admin.coupon.index');
         });
     }
 }

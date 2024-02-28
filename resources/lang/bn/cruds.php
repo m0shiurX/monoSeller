@@ -147,9 +147,9 @@ return [
         'title'          => 'Store',
         'title_singular' => 'Store',
     ],
-    'cupon' => [
-        'title'          => 'Cupon',
-        'title_singular' => 'Cupon',
+    'coupon' => [
+        'title'          => 'Coupon',
+        'title_singular' => 'Coupon',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => ' ',

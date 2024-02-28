@@ -4,11 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCuponsTable extends Migration
+class CreateCouponsTable extends Migration
 {
     public function up()
     {
-        Schema::create('cupons', function (Blueprint $table) {
+        Schema::create('coupons', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('code');
             $table->string('description')->nullable();

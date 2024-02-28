@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Cupon;
+use App\Models\Coupon;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
 
-class UpdateCuponRequest extends FormRequest
+class UpdateCouponRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('cupon_edit');
+        return Gate::allows('coupon_edit');
     }
 
     public function rules()
