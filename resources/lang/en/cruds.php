@@ -2,8 +2,8 @@
 
 return [
     'userManagement' => [
-        'title'          => 'Admins',
-        'title_singular' => 'Admin',
+        'title'          => 'User management',
+        'title_singular' => 'User management',
     ],
     'permission' => [
         'title'          => 'Permissions',
@@ -40,8 +40,8 @@ return [
         ],
     ],
     'user' => [
-        'title'          => 'Members',
-        'title_singular' => 'Member',
+        'title'          => 'Users',
+        'title_singular' => 'User',
         'fields'         => [
             'id'                       => 'ID',
             'id_helper'                => ' ',
@@ -135,21 +135,13 @@ return [
         'title'          => 'Business Info',
         'title_singular' => 'Business Info',
     ],
-    'tracking' => [
-        'title'          => 'Tracking',
-        'title_singular' => 'Tracking',
-    ],
-    'to' => [
-        'title'          => 'Privacy Policy & ToS',
-        'title_singular' => 'Privacy Policy & To',
-    ],
     'store' => [
         'title'          => 'Store',
         'title_singular' => 'Store',
     ],
-    'coupon' => [
-        'title'          => 'Coupon',
-        'title_singular' => 'Coupon',
+    'cupon' => [
+        'title'          => 'Cupon',
+        'title_singular' => 'Cupon',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => ' ',
@@ -191,6 +183,42 @@ return [
             'footer_script_helper' => ' ',
             'html_content'         => 'Html Content',
             'html_content_helper'  => ' ',
+            'created_at'           => 'Created at',
+            'created_at_helper'    => ' ',
+            'updated_at'           => 'Updated at',
+            'updated_at_helper'    => ' ',
+            'deleted_at'           => 'Deleted at',
+            'deleted_at_helper'    => ' ',
+        ],
+    ],
+    'policyAndTo' => [
+        'title'          => 'Privacy Policy & ToS',
+        'title_singular' => 'Privacy Policy & To',
+        'fields'         => [
+            'id'                    => 'ID',
+            'id_helper'             => ' ',
+            'privacy_policy'        => 'Privacy Policy',
+            'privacy_policy_helper' => ' ',
+            'tos'                   => 'Terms of Service',
+            'tos_helper'            => ' ',
+            'created_at'            => 'Created at',
+            'created_at_helper'     => ' ',
+            'updated_at'            => 'Updated at',
+            'updated_at_helper'     => ' ',
+            'deleted_at'            => 'Deleted at',
+            'deleted_at_helper'     => ' ',
+        ],
+    ],
+    'tracking' => [
+        'title'          => 'Tracking',
+        'title_singular' => 'Tracking',
+        'fields'         => [
+            'id'                   => 'ID',
+            'id_helper'            => ' ',
+            'header_script'        => 'Header Script',
+            'header_script_helper' => ' ',
+            'footer_script'        => 'Footer Script',
+            'footer_script_helper' => ' ',
             'created_at'           => 'Created at',
             'created_at_helper'    => ' ',
             'updated_at'           => 'Updated at',

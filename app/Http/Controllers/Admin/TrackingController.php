@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MassDestroyTrackingRequest;
 use App\Http\Requests\StoreTrackingRequest;
 use App\Http\Requests\UpdateTrackingRequest;
+use App\Models\Tracking;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +16,9 @@ class TrackingController extends Controller
     {
         abort_if(Gate::denies('tracking_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.trackings.index');
+        $trackings = Tracking::all();
+
+        return view('admin.trackings.index', compact('trackings'));
     }
 
     public function create()
@@ -52,25 +54,5 @@ class TrackingController extends Controller
         abort_if(Gate::denies('tracking_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('admin.trackings.show', compact('tracking'));
-    }
-
-    public function destroy(Tracking $tracking)
-    {
-        abort_if(Gate::denies('tracking_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $tracking->delete();
-
-        return back();
-    }
-
-    public function massDestroy(MassDestroyTrackingRequest $request)
-    {
-        $trackings = Tracking::find(request('ids'));
-
-        foreach ($trackings as $tracking) {
-            $tracking->delete();
-        }
-
-        return response(null, Response::HTTP_NO_CONTENT);
     }
 }

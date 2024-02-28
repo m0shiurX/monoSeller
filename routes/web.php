@@ -43,17 +43,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('business-infos/destroy', 'BusinessInfoController@massDestroy')->name('business-infos.massDestroy');
     Route::resource('business-infos', 'BusinessInfoController');
 
-    // Tracking
-    Route::delete('trackings/destroy', 'TrackingController@massDestroy')->name('trackings.massDestroy');
-    Route::resource('trackings', 'TrackingController');
-
-    // Tos
-    Route::delete('tos/destroy', 'TosController@massDestroy')->name('tos.massDestroy');
-    Route::resource('tos', 'TosController');
-
-    // Coupon
-    Route::delete('coupons/destroy', 'CouponController@massDestroy')->name('coupons.massDestroy');
-    Route::resource('coupons', 'CouponController');
+    // Cupon
+    Route::delete('cupons/destroy', 'CuponController@massDestroy')->name('cupons.massDestroy');
+    Route::resource('cupons', 'CuponController');
 
     // Store Settings
     Route::delete('store-settings/destroy', 'StoreSettingsController@massDestroy')->name('store-settings.massDestroy');
@@ -62,6 +54,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Sales Page
     Route::delete('sales-pages/destroy', 'SalesPageController@massDestroy')->name('sales-pages.massDestroy');
     Route::resource('sales-pages', 'SalesPageController');
+
+    // Policy And Tos
+    Route::post('policy-and-tos/media', 'PolicyAndTosController@storeMedia')->name('policy-and-tos.storeMedia');
+    Route::post('policy-and-tos/ckmedia', 'PolicyAndTosController@storeCKEditorImages')->name('policy-and-tos.storeCKEditorImages');
+    Route::resource('policy-and-tos', 'PolicyAndTosController', ['except' => ['destroy']]);
+
+    // Tracking
+    Route::resource('trackings', 'TrackingController', ['except' => ['destroy']]);
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password

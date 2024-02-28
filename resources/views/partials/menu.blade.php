@@ -68,7 +68,7 @@
             </li>
         @endcan
         @can('store_access')
-            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/products*") ? "c-show" : "" }} {{ request()->is("admin/orders*") ? "c-show" : "" }} {{ request()->is("admin/coupons*") ? "c-show" : "" }} {{ request()->is("admin/store-settings*") ? "c-show" : "" }}">
+            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/products*") ? "c-show" : "" }} {{ request()->is("admin/orders*") ? "c-show" : "" }} {{ request()->is("admin/cupons*") ? "c-show" : "" }} {{ request()->is("admin/store-settings*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-store c-sidebar-nav-icon">
 
@@ -96,13 +96,13 @@
                             </a>
                         </li>
                     @endcan
-                    @can('coupon_access')
+                    @can('cupon_access')
                         <li class="c-sidebar-nav-item">
-                            <a href="{{ route("admin.coupons.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/coupons") || request()->is("admin/coupons/*") ? "c-active" : "" }}">
+                            <a href="{{ route("admin.cupons.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/cupons") || request()->is("admin/cupons/*") ? "c-active" : "" }}">
                                 <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
 
                                 </i>
-                                {{ trans('cruds.coupon.title') }}
+                                {{ trans('cruds.cupon.title') }}
                             </a>
                         </li>
                     @endcan
@@ -130,7 +130,7 @@
             </li>
         @endcan
         @can('setting_access')
-            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/business-infos*") ? "c-show" : "" }} {{ request()->is("admin/trackings*") ? "c-show" : "" }} {{ request()->is("admin/tos*") ? "c-show" : "" }}">
+            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/business-infos*") ? "c-show" : "" }} {{ request()->is("admin/trackings*") ? "c-show" : "" }} {{ request()->is("admin/policy-and-tos*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
 
@@ -158,13 +158,13 @@
                             </a>
                         </li>
                     @endcan
-                    @can('to_access')
+                    @can('policy_and_to_access')
                         <li class="c-sidebar-nav-item">
-                            <a href="{{ route("admin.tos.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/tos") || request()->is("admin/tos/*") ? "c-active" : "" }}">
+                            <a href="{{ route("admin.policy-and-tos.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/policy-and-tos") || request()->is("admin/policy-and-tos/*") ? "c-active" : "" }}">
                                 <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
 
                                 </i>
-                                {{ trans('cruds.to.title') }}
+                                {{ trans('cruds.policyAndTo.title') }}
                             </a>
                         </li>
                     @endcan
