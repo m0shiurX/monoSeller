@@ -127,10 +127,6 @@ return [
             'deleted_at_helper' => ' ',
         ],
     ],
-    'salesPage' => [
-        'title'          => 'Sales Pages',
-        'title_singular' => 'Sales Page',
-    ],
     'setting' => [
         'title'          => 'Settings',
         'title_singular' => 'Setting',
@@ -176,6 +172,32 @@ return [
     'storeSetting' => [
         'title'          => 'Store Settings',
         'title_singular' => 'Store Setting',
+    ],
+    'salesPage' => [
+        'title'          => 'Sales Page',
+        'title_singular' => 'Sales Page',
+        'fields'         => [
+            'id'                   => 'ID',
+            'id_helper'            => ' ',
+            'title'                => 'Title',
+            'title_helper'         => ' ',
+            'slug'                 => 'Slug',
+            'slug_helper'          => ' ',
+            'product'              => 'Product',
+            'product_helper'       => ' ',
+            'header_script'        => 'Header Script',
+            'header_script_helper' => ' ',
+            'footer_script'        => 'Footer Script',
+            'footer_script_helper' => ' ',
+            'html_content'         => 'Html Content',
+            'html_content_helper'  => ' ',
+            'created_at'           => 'Created at',
+            'created_at_helper'    => ' ',
+            'updated_at'           => 'Updated at',
+            'updated_at_helper'    => ' ',
+            'deleted_at'           => 'Deleted at',
+            'deleted_at_helper'    => ' ',
+        ],
     ],
 
 ];

@@ -39,10 +39,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('orders/destroy', 'OrderController@massDestroy')->name('orders.massDestroy');
     Route::resource('orders', 'OrderController');
 
-    // Sales Pages
-    Route::delete('sales-pages/destroy', 'SalesPagesController@massDestroy')->name('sales-pages.massDestroy');
-    Route::resource('sales-pages', 'SalesPagesController');
-
     // Business Info
     Route::delete('business-infos/destroy', 'BusinessInfoController@massDestroy')->name('business-infos.massDestroy');
     Route::resource('business-infos', 'BusinessInfoController');
@@ -62,6 +58,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Store Settings
     Route::delete('store-settings/destroy', 'StoreSettingsController@massDestroy')->name('store-settings.massDestroy');
     Route::resource('store-settings', 'StoreSettingsController');
+
+    // Sales Page
+    Route::delete('sales-pages/destroy', 'SalesPageController@massDestroy')->name('sales-pages.massDestroy');
+    Route::resource('sales-pages', 'SalesPageController');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password

@@ -136,131 +136,131 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 32,
-                'title' => 'sales_page_create',
-            ],
-            [
-                'id'    => 33,
-                'title' => 'sales_page_edit',
-            ],
-            [
-                'id'    => 34,
-                'title' => 'sales_page_show',
-            ],
-            [
-                'id'    => 35,
-                'title' => 'sales_page_delete',
-            ],
-            [
-                'id'    => 36,
-                'title' => 'sales_page_access',
-            ],
-            [
-                'id'    => 37,
                 'title' => 'setting_access',
             ],
             [
-                'id'    => 38,
+                'id'    => 33,
                 'title' => 'business_info_create',
             ],
             [
-                'id'    => 39,
+                'id'    => 34,
                 'title' => 'business_info_edit',
             ],
             [
-                'id'    => 40,
+                'id'    => 35,
                 'title' => 'business_info_show',
             ],
             [
-                'id'    => 41,
+                'id'    => 36,
                 'title' => 'business_info_delete',
             ],
             [
-                'id'    => 42,
+                'id'    => 37,
                 'title' => 'business_info_access',
             ],
             [
-                'id'    => 43,
+                'id'    => 38,
                 'title' => 'tracking_create',
             ],
             [
-                'id'    => 44,
+                'id'    => 39,
                 'title' => 'tracking_edit',
             ],
             [
-                'id'    => 45,
+                'id'    => 40,
                 'title' => 'tracking_show',
             ],
             [
-                'id'    => 46,
+                'id'    => 41,
                 'title' => 'tracking_delete',
             ],
             [
-                'id'    => 47,
+                'id'    => 42,
                 'title' => 'tracking_access',
             ],
             [
-                'id'    => 48,
+                'id'    => 43,
                 'title' => 'to_create',
             ],
             [
-                'id'    => 49,
+                'id'    => 44,
                 'title' => 'to_edit',
             ],
             [
-                'id'    => 50,
+                'id'    => 45,
                 'title' => 'to_show',
             ],
             [
-                'id'    => 51,
+                'id'    => 46,
                 'title' => 'to_delete',
             ],
             [
-                'id'    => 52,
+                'id'    => 47,
                 'title' => 'to_access',
             ],
             [
-                'id'    => 53,
+                'id'    => 48,
                 'title' => 'store_access',
             ],
             [
-                'id'    => 54,
+                'id'    => 49,
                 'title' => 'cupon_create',
             ],
             [
-                'id'    => 55,
+                'id'    => 50,
                 'title' => 'cupon_edit',
             ],
             [
-                'id'    => 56,
+                'id'    => 51,
                 'title' => 'cupon_show',
             ],
             [
-                'id'    => 57,
+                'id'    => 52,
                 'title' => 'cupon_delete',
             ],
             [
-                'id'    => 58,
+                'id'    => 53,
                 'title' => 'cupon_access',
             ],
             [
-                'id'    => 59,
+                'id'    => 54,
                 'title' => 'store_setting_create',
             ],
             [
-                'id'    => 60,
+                'id'    => 55,
                 'title' => 'store_setting_edit',
             ],
             [
-                'id'    => 61,
+                'id'    => 56,
                 'title' => 'store_setting_show',
             ],
             [
-                'id'    => 62,
+                'id'    => 57,
                 'title' => 'store_setting_delete',
             ],
             [
-                'id'    => 63,
+                'id'    => 58,
                 'title' => 'store_setting_access',
+            ],
+            [
+                'id'    => 59,
+                'title' => 'sales_page_create',
+            ],
+            [
+                'id'    => 60,
+                'title' => 'sales_page_edit',
+            ],
+            [
+                'id'    => 61,
+                'title' => 'sales_page_show',
+            ],
+            [
+                'id'    => 62,
+                'title' => 'sales_page_delete',
+            ],
+            [
+                'id'    => 63,
+                'title' => 'sales_page_access',
             ],
             [
                 'id'    => 64,

@@ -46,6 +46,11 @@ class Product extends Model implements HasMedia
         $this->addMediaConversion('preview')->fit('crop', 120, 120);
     }
 
+    public function productSalesPages()
+    {
+        return $this->hasMany(SalesPage::class, 'product_id', 'id');
+    }
+
     public function getPhotoAttribute()
     {
         $files = $this->getMedia('photo');
