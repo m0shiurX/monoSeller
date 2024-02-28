@@ -60,7 +60,7 @@
         @can('sales_page_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.sales-pages.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/sales-pages") || request()->is("admin/sales-pages/*") ? "c-active" : "" }}">
-                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                    <i class="fa-fw fas fa-file-alt c-sidebar-nav-icon">
 
                     </i>
                     {{ trans('cruds.salesPage.title') }}
