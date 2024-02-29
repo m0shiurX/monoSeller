@@ -19,7 +19,6 @@ class PolicyAndTosController extends Controller
     {
         abort_if(Gate::denies('policy_and_tos_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        // $policyAndTos = PolicyAndTos::all();
         $policyAndTos = PolicyAndTos::firstOrCreate(
             ['id' => 1],
             ['tos' => 'Write you Terms of Services here...', 'privacy_policy' =>  'Write your privacy policy here...']

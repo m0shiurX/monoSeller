@@ -1,17 +1,17 @@
 @extends('layouts.admin')
 @section('content')
-@can('tracking_create')
-    <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.trackings.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.tracking.title_singular') }}
-            </a>
-        </div>
-    </div>
-@endcan
 <div class="card">
-    <div class="card-header">
-        {{ trans('cruds.tracking.title_singular') }} {{ trans('global.list') }}
+    <div class="card-header row mx-4 border-0 px-0 pb-0 justify-content-between align-items-center">
+        <h4 class="mb-0">{{ trans('cruds.tracking.title_singular') }} Scripts </h4>
+        @can('tracking_create')
+            <div style="margin-bottom: 10px;" class="row">
+                <div class="col-lg-12">
+                    <a class="btn btn-success" href="{{ route('admin.trackings.edit', $tracking->id) }}">
+                        {{ trans('global.edit') }} {{ trans('cruds.tracking.title_singular') }}
+                    </a>
+                </div>
+            </div>
+        @endcan
     </div>
 
     <div class="card-body">
@@ -19,70 +19,42 @@
             <table class=" table table-bordered table-striped table-hover datatable datatable-Tracking">
                 <thead>
                     <tr>
-                        <th width="10">
-                        </th>
+
                         <th>
-                            {{ trans('cruds.tracking.fields.id') }}
-                        </th>
-                        <th>
-                            &nbsp;
+                            {{ trans('cruds.tracking.fields.header_script') }}
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($trackings as $key => $tracking)
-                        <tr data-entry-id="{{ $tracking->id }}">
+                        <tr>
                             <td>
-
+                            <code>
+                            {{$tracking->header_script ?? '' }}
+                            </code>
                             </td>
-                            <td>
-                                {{ $tracking->id ?? '' }}
-                            </td>
-                            <td>
-                                @can('tracking_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.trackings.show', $tracking->id) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
-                                @endcan
-
-                                @can('tracking_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.trackings.edit', $tracking->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
-                                @endcan
-
-
-                            </td>
-
                         </tr>
-                    @endforeach
+                </tbody>
+            </table>
+            <table class=" table table-bordered table-striped table-hover datatable datatable-Tracking">
+                <thead>
+                    <tr>
+
+                        <th>
+                            {{ trans('cruds.tracking.fields.footer_script') }}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>
+                            <code>
+                                {{ html_entity_decode($tracking->footer_script ?? '') }}
+                            </code>
+                            </td>
+                        </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-
-
-
-@endsection
-@section('scripts')
-@parent
-<script>
-    $(function () {
-  let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-
-  $.extend(true, $.fn.dataTable.defaults, {
-    orderCellsTop: true,
-    order: [[ 1, 'desc' ]],
-    pageLength: 100,
-  });
-  let table = $('.datatable-Tracking:not(.ajaxTable)').DataTable({ buttons: dtButtons })
-  $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
-      $($.fn.dataTable.tables(true)).DataTable()
-          .columns.adjust();
-  });
-
-})
-
-</script>
 @endsection

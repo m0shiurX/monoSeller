@@ -41,7 +41,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Business Info
     Route::delete('business-infos/destroy', 'BusinessInfoController@massDestroy')->name('business-infos.massDestroy');
-    Route::resource('business-infos', 'BusinessInfoController');
+    Route::resource('business-infos', 'BusinessInfoController', ['except' => ['destroy', 'show', 'create', 'store']]);
 
     // Tracking
     Route::delete('trackings/destroy', 'TrackingController@massDestroy')->name('trackings.massDestroy');
