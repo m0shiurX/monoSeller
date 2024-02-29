@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\MediaUploadingTrait;
-use App\Http\Requests\StorePolicyAndTosRequest;
 use App\Http\Requests\UpdatePolicyAndTosRequest;
 use App\Models\PolicyAndTos;
 use Gate;
@@ -20,28 +19,15 @@ class PolicyAndTosController extends Controller
     {
         abort_if(Gate::denies('policy_and_tos_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $policyAndTos = PolicyAndTos::all();
+        // $policyAndTos = PolicyAndTos::all();
+        $policyAndTos = PolicyAndTos::firstOrCreate(
+            ['id' => 1],
+            ['tos' => 'Write you Terms of Services here...', 'privacy_policy' =>  'Write your privacy policy here...']
+        );
 
         return view('admin.policyAndTos.index', compact('policyAndTos'));
     }
 
-    public function create()
-    {
-        abort_if(Gate::denies('policy_and_tos_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        return view('admin.policyAndTos.create');
-    }
-
-    public function store(StorePolicyAndTosRequest $request)
-    {
-        $policyAndTos = PolicyAndTos::create($request->all());
-
-        if ($media = $request->input('ck-media', false)) {
-            Media::whereIn('id', $media)->update(['model_id' => $policyAndTos->id]);
-        }
-
-        return redirect()->route('admin.policy-and-tos.index');
-    }
 
     public function edit(PolicyAndTos $policyAndTos)
     {
@@ -55,13 +41,6 @@ class PolicyAndTosController extends Controller
         $policyAndTos->update($request->all());
 
         return redirect()->route('admin.policy-and-tos.index');
-    }
-
-    public function show(PolicyAndTos $policyAndTos)
-    {
-        abort_if(Gate::denies('policy_and_tos_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        return view('admin.policyAndTos.show', compact('policyAndTos'));
     }
 
     public function storeCKEditorImages(Request $request)

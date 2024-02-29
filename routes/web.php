@@ -50,9 +50,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Policy And Tos
     Route::post('policy-and-tos/media', 'PolicyAndTosController@storeMedia')->name('policy-and-tos.storeMedia');
     Route::post('policy-and-tos/ckmedia', 'PolicyAndTosController@storeCKEditorImages')->name('policy-and-tos.storeCKEditorImages');
-    Route::resource('policy-and-tos', 'PolicyAndTosController', ['except' => ['destroy']])->parameters([
+    Route::resource('policy-and-tos', 'PolicyAndTosController', ['except' => ['destroy', 'show', 'create', 'store']])->parameters([
         'policy-and-tos' => 'policy-and-tos:id',
-    ]);;
+    ]);
 
     // Coupon
     Route::delete('coupons/destroy', 'CouponController@massDestroy')->name('coupons.massDestroy');
@@ -64,7 +64,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Sales Page
     Route::delete('sales-pages/destroy', 'SalesPageController@massDestroy')->name('sales-pages.massDestroy');
-    Route::resource('sales-pages', 'SalesPageController');
+    Route::resource('sales-pages', 'SalesPageController')->parameters([
+        'sales-pages' => 'sales-page:id',
+    ]);
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password
