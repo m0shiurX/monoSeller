@@ -138,10 +138,24 @@ return [
     'tracking' => [
         'title'          => 'Tracking',
         'title_singular' => 'Tracking',
+        'fields'         => [
+            'id'                   => 'ID',
+            'id_helper'            => ' ',
+            'header_script'        => 'Header Script',
+            'header_script_helper' => ' ',
+            'footer_script'        => 'Footer Script',
+            'footer_script_helper' => ' ',
+            'created_at'           => 'Created at',
+            'created_at_helper'    => ' ',
+            'updated_at'           => 'Updated at',
+            'updated_at_helper'    => ' ',
+            'deleted_at'           => 'Deleted at',
+            'deleted_at_helper'    => ' ',
+        ],
     ],
     'to' => [
         'title'          => 'Privacy Policy & ToS',
-        'title_singular' => 'Privacy Policy & To',
+        'title_singular' => 'Privacy Policy & ToS',
     ],
     'store' => [
         'title'          => 'Store',
