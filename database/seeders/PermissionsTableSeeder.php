@@ -180,23 +180,23 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 43,
-                'title' => 'to_create',
+                'title' => 'policy_and_tos_create',
             ],
             [
                 'id'    => 44,
-                'title' => 'to_edit',
+                'title' => 'policy_and_tos_edit',
             ],
             [
                 'id'    => 45,
-                'title' => 'to_show',
+                'title' => 'policy_and_tos_show',
             ],
             [
                 'id'    => 46,
-                'title' => 'to_delete',
+                'title' => 'policy_and_to_delete',
             ],
             [
                 'id'    => 47,
-                'title' => 'to_access',
+                'title' => 'policy_and_tos_access',
             ],
             [
                 'id'    => 48,

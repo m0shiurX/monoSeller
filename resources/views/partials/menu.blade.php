@@ -158,13 +158,13 @@
                             </a>
                         </li>
                     @endcan
-                    @can('to_access')
+                    @can('policy_and_tos_access')
                         <li class="c-sidebar-nav-item">
-                            <a href="{{ route("admin.tos.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/tos") || request()->is("admin/tos/*") ? "c-active" : "" }}">
+                            <a href="{{ route("admin.policy-and-tos.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/policy-and-tos") || request()->is("admin/policy-and-tos/*") ? "c-active" : "" }}">
                                 <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
 
                                 </i>
-                                {{ trans('cruds.to.title') }}
+                                {{ trans('cruds.policyAndTos.title') }}
                             </a>
                         </li>
                     @endcan

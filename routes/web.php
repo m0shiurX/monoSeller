@@ -47,9 +47,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('trackings/destroy', 'TrackingController@massDestroy')->name('trackings.massDestroy');
     Route::resource('trackings', 'TrackingController');
 
-    // Tos
-    Route::delete('tos/destroy', 'TosController@massDestroy')->name('tos.massDestroy');
-    Route::resource('tos', 'TosController');
+    // Policy And Tos
+    Route::post('policy-and-tos/media', 'PolicyAndTosController@storeMedia')->name('policy-and-tos.storeMedia');
+    Route::post('policy-and-tos/ckmedia', 'PolicyAndTosController@storeCKEditorImages')->name('policy-and-tos.storeCKEditorImages');
+    Route::resource('policy-and-tos', 'PolicyAndTosController', ['except' => ['destroy']])->parameters([
+        'policy-and-tos' => 'policy-and-tos:id',
+    ]);;
 
     // Coupon
     Route::delete('coupons/destroy', 'CouponController@massDestroy')->name('coupons.massDestroy');

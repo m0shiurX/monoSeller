@@ -153,9 +153,23 @@ return [
             'deleted_at_helper'    => ' ',
         ],
     ],
-    'to' => [
+    'policyAndTos' => [
         'title'          => 'Privacy Policy & ToS',
         'title_singular' => 'Privacy Policy & ToS',
+        'fields'         => [
+            'id'                    => 'ID',
+            'id_helper'             => ' ',
+            'privacy_policy'        => 'Privacy Policy',
+            'privacy_policy_helper' => ' ',
+            'tos'                   => 'Terms of Service',
+            'tos_helper'            => ' ',
+            'created_at'            => 'Created at',
+            'created_at_helper'     => ' ',
+            'updated_at'            => 'Updated at',
+            'updated_at_helper'     => ' ',
+            'deleted_at'            => 'Deleted at',
+            'deleted_at_helper'     => ' ',
+        ],
     ],
     'store' => [
         'title'          => 'Store',
