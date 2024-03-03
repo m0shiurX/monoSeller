@@ -198,8 +198,8 @@ return [
         ],
     ],
     'storeSetting' => [
-        'title'          => 'Store Settings',
-        'title_singular' => 'Store Setting',
+        'title'          => 'Store Configurations',
+        'title_singular' => 'Store Configuration',
     ],
     'salesPage' => [
         'title'          => 'Sales Page',

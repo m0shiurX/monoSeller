@@ -99,7 +99,7 @@
                     @can('coupon_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.coupons.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/coupons") || request()->is("admin/coupons/*") ? "c-active" : "" }}">
-                                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                                <i class="fa-fw fas fa-gift c-sidebar-nav-icon">
 
                                 </i>
                                 {{ trans('cruds.coupon.title') }}
@@ -151,7 +151,7 @@
                     @can('tracking_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.trackings.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/trackings") || request()->is("admin/trackings/*") ? "c-active" : "" }}">
-                                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                                <i class="fas fa-user-secret fa-fw c-sidebar-nav-icon">
 
                                 </i>
                                 {{ trans('cruds.tracking.title') }}
@@ -161,7 +161,7 @@
                     @can('policy_and_tos_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.policy-and-tos.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/policy-and-tos") || request()->is("admin/policy-and-tos/*") ? "c-active" : "" }}">
-                                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                                <i class="fa-fw fas fa-book c-sidebar-nav-icon">
 
                                 </i>
                                 {{ trans('cruds.policyAndTos.title') }}
