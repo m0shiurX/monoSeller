@@ -94,9 +94,9 @@ return [
      */
     'pagebuilder' => [
         'class' => PHPageBuilder\Modules\GrapesJS\PageBuilder::class,
-        'url' => '/admin/pagebuilder',
+        'url' => '/admin/pages/build',
         'actions' => [
-            'back' => '/admin'
+            'back' => '/admin/pages'
         ]
     ],
 

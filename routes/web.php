@@ -67,7 +67,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('sales-pages', 'SalesPageController')->parameters([
         'sales-pages' => 'sales-page:id',
     ]);
+
+    Route::any('/pages/{id}/build', 'PageBuilderController@build')->name('pagebuilder.build');
+    Route::any('/pages/build', 'PageBuilderController@build');
 });
+
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password
     if (file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php'))) {
@@ -77,3 +81,8 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
         Route::post('profile/destroy', 'ChangePasswordController@destroy')->name('password.destroyProfile');
     }
 });
+
+Route::any('{uri}', [
+    'uses' => 'App\Http\Controllers\Public\WebsiteController@uri',
+    'as' => 'page',
+])->where('uri', '.*');
