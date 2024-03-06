@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-
-<div class="card">
+<div class="row gap-2">
+<div class="card col-lg-6">
     <div class="card-header">
         {{ trans('global.create') }} {{ trans('cruds.salesPage.title_singular') }}
     </div>
@@ -71,7 +71,15 @@
         </form>
     </div>
 </div>
+<div class="card col-lg-5">
+    <div class="card-header">
+        Select Template
+    </div>
+    <div class="card-body">
 
+    </div>
+</div>
+</div>
 
 
 @endsection
