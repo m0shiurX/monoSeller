@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'site_title' => 'MonoSeller',
+    'site_title' => 'QuickSeller',
 
 ];
