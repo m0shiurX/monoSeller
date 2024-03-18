@@ -1,7 +1,7 @@
 
 [] Settings page
     [] - business info
-        [] 1. about 
+        [] 1. about
         [] 2. contact
             [] 1. email
             [] 2. phone
