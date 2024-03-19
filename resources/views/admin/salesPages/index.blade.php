@@ -65,7 +65,7 @@
                             </td>
                             <td>
                                 @can('sales_page_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.sales-pages.show', $salesPage->id) }}">
+                                    <a class="btn btn-xs btn-primary" href="{{ route('pages.view', $salesPage->slug) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
@@ -142,7 +142,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

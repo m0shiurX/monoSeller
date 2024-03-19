@@ -20,16 +20,6 @@
                 <span class="help-block">{{ trans('cruds.salesPage.fields.title_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="slug">{{ trans('cruds.salesPage.fields.slug') }}</label>
-                <input class="form-control {{ $errors->has('slug') ? 'is-invalid' : '' }}" type="text" name="slug" id="slug" value="{{ old('slug', '') }}">
-                @if($errors->has('slug'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('slug') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.salesPage.fields.slug_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <label class="required" for="product_id">{{ trans('cruds.salesPage.fields.product') }}</label>
                 <select class="form-control select2 {{ $errors->has('product') ? 'is-invalid' : '' }}" name="product_id" id="product_id" required>
                     @foreach($products as $id => $entry)

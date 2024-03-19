@@ -80,5 +80,5 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
 
 
 Route::group(['namespace' => 'Public'], function () {
-    Route::get('/pages/{salesPage:slug}', 'SalesPagesController@show');
+    Route::get('/pages/{salesPage:slug}', 'SalesPagesController@show')->name('pages.view');
 });
