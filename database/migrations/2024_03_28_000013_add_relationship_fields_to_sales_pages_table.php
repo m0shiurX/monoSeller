@@ -10,7 +10,12 @@ class AddRelationshipFieldsToSalesPagesTable extends Migration
     {
         Schema::table('sales_pages', function (Blueprint $table) {
             $table->unsignedBigInteger('product_id')->nullable();
-            $table->foreign('product_id', 'product_fk_9545923')->references('id')->on('products');
+            $table->foreign(
+                'product_id',
+                'product_fk_9545923'
+            )->references('id')->on('products');
+            $table->unsignedBigInteger('template_id')->nullable();
+            $table->foreign('template_id', 'template_fk_9545923')->references('id')->on('templates');
         });
     }
 }

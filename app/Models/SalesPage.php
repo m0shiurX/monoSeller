@@ -19,6 +19,9 @@ class SalesPage extends Model
         'updated_at',
         'deleted_at',
     ];
+    protected $casts = [
+        'template_content' => 'array',
+    ];
 
     protected $fillable = [
         'title',
@@ -26,7 +29,7 @@ class SalesPage extends Model
         'product_id',
         'header_script',
         'footer_script',
-        'html_content',
+        'template_content',
         'created_at',
         'updated_at',
         'deleted_at',

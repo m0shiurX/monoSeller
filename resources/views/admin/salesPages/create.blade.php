@@ -34,6 +34,20 @@
                 <span class="help-block">{{ trans('cruds.salesPage.fields.product_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="template_id">{{ trans('cruds.salesPage.fields.template') }}</label>
+                <select class="form-control select2 {{ $errors->has('template') ? 'is-invalid' : '' }}" name="template_id" id="template_id" required>
+                    @foreach($templates as $id => $entry)
+                        <option value="{{ $id }}" {{ old('template_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('template'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('template') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.salesPage.fields.template_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label for="header_script">{{ trans('cruds.salesPage.fields.header_script') }}</label>
                 <textarea class="form-control {{ $errors->has('header_script') ? 'is-invalid' : '' }}" name="header_script" id="header_script">{{ old('header_script') }}</textarea>
                 @if($errors->has('header_script'))

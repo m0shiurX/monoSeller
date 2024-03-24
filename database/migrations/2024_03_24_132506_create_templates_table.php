@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('path');
-            $table->longText('template_fields');
+            $table->json('template_fields');
             $table->timestamps();
             $table->softDeletes();
         });

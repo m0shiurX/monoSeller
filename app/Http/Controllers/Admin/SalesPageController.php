@@ -8,6 +8,7 @@ use App\Http\Requests\StoreSalesPageRequest;
 use App\Http\Requests\UpdateSalesPageRequest;
 use App\Models\Product;
 use App\Models\SalesPage;
+use App\Models\Template;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,8 +29,8 @@ class SalesPageController extends Controller
         abort_if(Gate::denies('sales_page_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $products = Product::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        return view('admin.salesPages.create', compact('products'));
+        $templates = Template::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        return view('admin.salesPages.create', compact('products', 'templates'));
     }
 
     public function store(StoreSalesPageRequest $request)
@@ -44,10 +45,11 @@ class SalesPageController extends Controller
         abort_if(Gate::denies('sales_page_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $products = Product::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $templates = Template::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $salesPage->load('product');
 
-        return view('admin.salesPages.edit', compact('products', 'salesPage'));
+        return view('admin.salesPages.edit', compact('products', 'salesPage', 'templates'));
     }
 
     public function update(UpdateSalesPageRequest $request, SalesPage $salesPage)

@@ -14,7 +14,7 @@ class CreateSalesPagesTable extends Migration
             $table->string('slug')->nullable()->unique();
             $table->longText('header_script')->nullable();
             $table->longText('footer_script')->nullable();
-            $table->longText('html_content')->nullable();
+            $table->json('template_content')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

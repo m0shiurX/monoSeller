@@ -19,6 +19,9 @@ class Template extends Model implements HasMedia
     protected $appends = [
         'preview_image',
     ];
+    protected $casts = [
+        'template_fields' => 'array',
+    ];
 
     protected $dates = [
         'created_at',

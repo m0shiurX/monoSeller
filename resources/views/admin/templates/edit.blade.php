@@ -43,7 +43,7 @@
             </div>
             <div class="form-group">
                 <label class="required" for="template_fields">{{ trans('cruds.template.fields.template_fields') }}</label>
-                <textarea class="form-control {{ $errors->has('template_fields') ? 'is-invalid' : '' }}" name="template_fields" id="template_fields" required>{{ old('template_fields', $template->template_fields) }}</textarea>
+                <textarea class="form-control {{ $errors->has('template_fields') ? 'is-invalid' : '' }}" name="template_fields" id="template_fields" required>{{ old('template_fields', json_encode($template->template_fields)) }}</textarea>
                 @if($errors->has('template_fields'))
                     <div class="invalid-feedback">
                         {{ $errors->first('template_fields') }}
