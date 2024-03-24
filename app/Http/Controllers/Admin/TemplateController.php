@@ -40,9 +40,9 @@ class TemplateController extends Controller
             $template->addMedia(storage_path('tmp/uploads/' . basename($request->input('preview_image'))))->toMediaCollection('preview_image');
         }
 
-        if ($media = $request->input('ck-media', false)) {
-            Media::whereIn('id', $media)->update(['model_id' => $template->id]);
-        }
+        // if ($media = $request->input('ck-media', false)) {
+        //     Media::whereIn('id', $media)->update(['model_id' => $template->id]);
+        // }
 
         return redirect()->route('admin.templates.index');
     }
@@ -72,15 +72,15 @@ class TemplateController extends Controller
         return redirect()->route('admin.templates.index');
     }
 
-    public function storeCKEditorImages(Request $request)
-    {
-        abort_if(Gate::denies('template_create') && Gate::denies('template_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    // public function storeCKEditorImages(Request $request)
+    // {
+    //     abort_if(Gate::denies('template_create') && Gate::denies('template_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $model         = new Template();
-        $model->id     = $request->input('crud_id', 0);
-        $model->exists = true;
-        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
+    //     $model         = new Template();
+    //     $model->id     = $request->input('crud_id', 0);
+    //     $model->exists = true;
+    //     $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
 
-        return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
-    }
+    //     return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
+    // }
 }
