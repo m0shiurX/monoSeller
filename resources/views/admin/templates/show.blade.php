@@ -3,13 +3,13 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.coupon.title') }}
+        {{ trans('global.show') }} {{ trans('cruds.template.title') }}
     </div>
 
     <div class="card-body">
         <div class="form-group">
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.coupons.index') }}">
+                <a class="btn btn-default" href="{{ route('admin.templates.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
@@ -17,48 +17,52 @@
                 <tbody>
                     <tr>
                         <th>
-                            {{ trans('cruds.coupon.fields.id') }}
+                            {{ trans('cruds.template.fields.id') }}
                         </th>
                         <td>
-                            {{ $coupon->id }}
+                            {{ $template->id }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.coupon.fields.code') }}
+                            {{ trans('cruds.template.fields.name') }}
                         </th>
                         <td>
-                            {{ $coupon->code }}
+                            {{ $template->name }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.coupon.fields.description') }}
+                            {{ trans('cruds.template.fields.path') }}
                         </th>
                         <td>
-                            {{ $coupon->description }}
+                            {{ $template->path }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.coupon.fields.valid_till') }}
+                            {{ trans('cruds.template.fields.preview_image') }}
                         </th>
                         <td>
-                            {{ $coupon->valid_till }}
+                            @if($template->preview_image)
+                                <a href="{{ $template->preview_image->getUrl() }}" target="_blank" style="display: inline-block">
+                                    <img src="{{ $template->preview_image->getUrl('thumb') }}">
+                                </a>
+                            @endif
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.coupon.fields.valid_from') }}
+                            {{ trans('cruds.template.fields.template_fields') }}
                         </th>
                         <td>
-                            {{ $coupon->valid_from }}
+                            {{ $template->template_fields }}
                         </td>
                     </tr>
                 </tbody>
             </table>
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.coupons.index') }}">
+                <a class="btn btn-default" href="{{ route('admin.templates.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>

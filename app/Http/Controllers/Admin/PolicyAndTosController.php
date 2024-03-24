@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\MediaUploadingTrait;
-use App\Http\Requests\UpdatePolicyAndTosRequest;
-use App\Models\PolicyAndTos;
+use App\Http\Requests\StorePolicyAndToRequest;
+use App\Http\Requests\UpdatePolicyAndToRequest;
+use App\Models\PolicyAndTo;
 use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -17,36 +18,57 @@ class PolicyAndTosController extends Controller
 
     public function index()
     {
-        abort_if(Gate::denies('policy_and_tos_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('policy_and_to_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $policyAndTos = PolicyAndTos::firstOrCreate(
-            ['id' => 1],
-            ['tos' => 'Write you Terms of Services here...', 'privacy_policy' =>  'Write your privacy policy here...']
-        );
+        $policyAndTos = PolicyAndTo::all();
 
         return view('admin.policyAndTos.index', compact('policyAndTos'));
     }
 
-
-    public function edit(PolicyAndTos $policyAndTos)
+    public function create()
     {
-        abort_if(Gate::denies('policy_and_tos_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('policy_and_to_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.policyAndTos.edit', compact('policyAndTos'));
+        return view('admin.policyAndTos.create');
     }
 
-    public function update(UpdatePolicyAndTosRequest $request, PolicyAndTos $policyAndTos)
+    public function store(StorePolicyAndToRequest $request)
     {
-        $policyAndTos->update($request->all());
+        $policyAndTo = PolicyAndTo::create($request->all());
+
+        if ($media = $request->input('ck-media', false)) {
+            Media::whereIn('id', $media)->update(['model_id' => $policyAndTo->id]);
+        }
 
         return redirect()->route('admin.policy-and-tos.index');
     }
 
+    public function edit(PolicyAndTo $policyAndTo)
+    {
+        abort_if(Gate::denies('policy_and_to_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('admin.policyAndTos.edit', compact('policyAndTo'));
+    }
+
+    public function update(UpdatePolicyAndToRequest $request, PolicyAndTo $policyAndTo)
+    {
+        $policyAndTo->update($request->all());
+
+        return redirect()->route('admin.policy-and-tos.index');
+    }
+
+    public function show(PolicyAndTo $policyAndTo)
+    {
+        abort_if(Gate::denies('policy_and_to_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('admin.policyAndTos.show', compact('policyAndTo'));
+    }
+
     public function storeCKEditorImages(Request $request)
     {
-        abort_if(Gate::denies('policy_and_tos_create') && Gate::denies('policy_and_tos_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('policy_and_to_create') && Gate::denies('policy_and_to_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $model         = new PolicyAndTos();
+        $model         = new PolicyAndTo();
         $model->id     = $request->input('crud_id', 0);
         $model->exists = true;
         $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');

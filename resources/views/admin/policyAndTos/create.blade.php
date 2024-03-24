@@ -3,16 +3,15 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.edit') }} {{ trans('cruds.policyAndTo.title_singular') }}
+        {{ trans('global.create') }} {{ trans('cruds.policyAndTo.title_singular') }}
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route("admin.policy-and-tos.update", [$policyAndTo->id]) }}" enctype="multipart/form-data">
-            @method('PUT')
+        <form method="POST" action="{{ route("admin.policy-and-tos.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="privacy_policy">{{ trans('cruds.policyAndTo.fields.privacy_policy') }}</label>
-                <textarea class="form-control ckeditor {{ $errors->has('privacy_policy') ? 'is-invalid' : '' }}" name="privacy_policy" id="privacy_policy">{!! old('privacy_policy', $policyAndTo->privacy_policy) !!}</textarea>
+                <textarea class="form-control ckeditor {{ $errors->has('privacy_policy') ? 'is-invalid' : '' }}" name="privacy_policy" id="privacy_policy">{!! old('privacy_policy') !!}</textarea>
                 @if($errors->has('privacy_policy'))
                     <div class="invalid-feedback">
                         {{ $errors->first('privacy_policy') }}
@@ -22,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label for="tos">{{ trans('cruds.policyAndTo.fields.tos') }}</label>
-                <textarea class="form-control ckeditor {{ $errors->has('tos') ? 'is-invalid' : '' }}" name="tos" id="tos">{!! old('tos', $policyAndTo->tos) !!}</textarea>
+                <textarea class="form-control ckeditor {{ $errors->has('tos') ? 'is-invalid' : '' }}" name="tos" id="tos">{!! old('tos') !!}</textarea>
                 @if($errors->has('tos'))
                     <div class="invalid-feedback">
                         {{ $errors->first('tos') }}

@@ -3,16 +3,15 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.edit') }} {{ trans('cruds.tracking.title_singular') }}
+        {{ trans('global.create') }} {{ trans('cruds.tracking.title_singular') }}
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route("admin.trackings.update", [$tracking->id]) }}" enctype="multipart/form-data">
-            @method('PUT')
+        <form method="POST" action="{{ route("admin.trackings.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="header_script">{{ trans('cruds.tracking.fields.header_script') }}</label>
-                <textarea class="form-control {{ $errors->has('header_script') ? 'is-invalid' : '' }}" name="header_script" id="header_script">{{ old('header_script', $tracking->header_script) }}</textarea>
+                <textarea class="form-control {{ $errors->has('header_script') ? 'is-invalid' : '' }}" name="header_script" id="header_script">{{ old('header_script') }}</textarea>
                 @if($errors->has('header_script'))
                     <div class="invalid-feedback">
                         {{ $errors->first('header_script') }}
@@ -22,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label for="footer_script">{{ trans('cruds.tracking.fields.footer_script') }}</label>
-                <textarea class="form-control {{ $errors->has('footer_script') ? 'is-invalid' : '' }}" name="footer_script" id="footer_script">{{ old('footer_script', $tracking->footer_script) }}</textarea>
+                <textarea class="form-control {{ $errors->has('footer_script') ? 'is-invalid' : '' }}" name="footer_script" id="footer_script">{{ old('footer_script') }}</textarea>
                 @if($errors->has('footer_script'))
                     <div class="invalid-feedback">
                         {{ $errors->first('footer_script') }}

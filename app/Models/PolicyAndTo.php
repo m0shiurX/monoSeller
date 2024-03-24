@@ -6,12 +6,15 @@ use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class SalesPage extends Model
+class PolicyAndTo extends Model implements HasMedia
 {
-    use SoftDeletes, HasFactory;
+    use SoftDeletes, InteractsWithMedia, HasFactory;
 
-    public $table = 'sales_pages';
+    public $table = 'policy_and_tos';
 
     protected $dates = [
         'created_at',
@@ -20,12 +23,8 @@ class SalesPage extends Model
     ];
 
     protected $fillable = [
-        'title',
-        'slug',
-        'product_id',
-        'header_script',
-        'footer_script',
-        'html_content',
+        'privacy_policy',
+        'tos',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -36,8 +35,9 @@ class SalesPage extends Model
         return $date->format('Y-m-d H:i:s');
     }
 
-    public function product()
+    public function registerMediaConversions(Media $media = null): void
     {
-        return $this->belongsTo(Product::class, 'product_id');
+        $this->addMediaConversion('thumb')->fit('crop', 50, 50);
+        $this->addMediaConversion('preview')->fit('crop', 120, 120);
     }
 }

@@ -11,7 +11,7 @@ class CreateSalesPagesTable extends Migration
         Schema::create('sales_pages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('slug')->nullable()->unique();
+            $table->string('slug')->nullable();
             $table->longText('header_script')->nullable();
             $table->longText('footer_script')->nullable();
             $table->longText('html_content')->nullable();

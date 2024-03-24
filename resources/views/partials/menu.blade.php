@@ -130,7 +130,7 @@
             </li>
         @endcan
         @can('setting_access')
-            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/business-infos*") ? "c-show" : "" }} {{ request()->is("admin/trackings*") ? "c-show" : "" }} {{ request()->is("admin/tos*") ? "c-show" : "" }}">
+            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/business-infos*") ? "c-show" : "" }} {{ request()->is("admin/trackings*") ? "c-show" : "" }} {{ request()->is("admin/policy-and-tos*") ? "c-show" : "" }} {{ request()->is("admin/templates*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
 
@@ -151,20 +151,30 @@
                     @can('tracking_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.trackings.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/trackings") || request()->is("admin/trackings/*") ? "c-active" : "" }}">
-                                <i class="fas fa-user-secret fa-fw c-sidebar-nav-icon">
+                                <i class="fa-fw fas fa-user-secret c-sidebar-nav-icon">
 
                                 </i>
                                 {{ trans('cruds.tracking.title') }}
                             </a>
                         </li>
                     @endcan
-                    @can('policy_and_tos_access')
+                    @can('policy_and_to_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.policy-and-tos.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/policy-and-tos") || request()->is("admin/policy-and-tos/*") ? "c-active" : "" }}">
                                 <i class="fa-fw fas fa-book c-sidebar-nav-icon">
 
                                 </i>
-                                {{ trans('cruds.policyAndTos.title') }}
+                                {{ trans('cruds.policyAndTo.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('template_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.templates.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/templates") || request()->is("admin/templates/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-thermometer c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.template.title') }}
                             </a>
                         </li>
                     @endcan

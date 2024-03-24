@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-<div class="row gap-2">
-<div class="card col-lg-6">
+
+<div class="card">
     <div class="card-header">
         {{ trans('global.create') }} {{ trans('cruds.salesPage.title_singular') }}
     </div>
@@ -18,6 +18,16 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.salesPage.fields.title_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="slug">{{ trans('cruds.salesPage.fields.slug') }}</label>
+                <input class="form-control {{ $errors->has('slug') ? 'is-invalid' : '' }}" type="text" name="slug" id="slug" value="{{ old('slug', '') }}">
+                @if($errors->has('slug'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('slug') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.salesPage.fields.slug_helper') }}</span>
             </div>
             <div class="form-group">
                 <label class="required" for="product_id">{{ trans('cruds.salesPage.fields.product') }}</label>
@@ -61,15 +71,7 @@
         </form>
     </div>
 </div>
-<div class="card col-lg-5">
-    <div class="card-header">
-        Select Template
-    </div>
-    <div class="card-body">
 
-    </div>
-</div>
-</div>
 
 
 @endsection

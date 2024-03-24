@@ -160,110 +160,114 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 38,
-                'title' => 'tracking_create',
-            ],
-            [
-                'id'    => 39,
-                'title' => 'tracking_edit',
-            ],
-            [
-                'id'    => 40,
-                'title' => 'tracking_show',
-            ],
-            [
-                'id'    => 41,
-                'title' => 'tracking_delete',
-            ],
-            [
-                'id'    => 42,
-                'title' => 'tracking_access',
-            ],
-            [
-                'id'    => 43,
-                'title' => 'policy_and_tos_create',
-            ],
-            [
-                'id'    => 44,
-                'title' => 'policy_and_tos_edit',
-            ],
-            [
-                'id'    => 45,
-                'title' => 'policy_and_tos_show',
-            ],
-            [
-                'id'    => 46,
-                'title' => 'policy_and_to_delete',
-            ],
-            [
-                'id'    => 47,
-                'title' => 'policy_and_tos_access',
-            ],
-            [
-                'id'    => 48,
                 'title' => 'store_access',
             ],
             [
-                'id'    => 49,
-                'title' => 'coupon_create',
-            ],
-            [
-                'id'    => 50,
-                'title' => 'coupon_edit',
-            ],
-            [
-                'id'    => 51,
-                'title' => 'coupon_show',
-            ],
-            [
-                'id'    => 52,
-                'title' => 'coupon_delete',
-            ],
-            [
-                'id'    => 53,
-                'title' => 'coupon_access',
-            ],
-            [
-                'id'    => 54,
+                'id'    => 39,
                 'title' => 'store_setting_create',
             ],
             [
-                'id'    => 55,
+                'id'    => 40,
                 'title' => 'store_setting_edit',
             ],
             [
-                'id'    => 56,
+                'id'    => 41,
                 'title' => 'store_setting_show',
             ],
             [
-                'id'    => 57,
+                'id'    => 42,
                 'title' => 'store_setting_delete',
             ],
             [
-                'id'    => 58,
+                'id'    => 43,
                 'title' => 'store_setting_access',
             ],
             [
-                'id'    => 59,
+                'id'    => 44,
                 'title' => 'sales_page_create',
             ],
             [
-                'id'    => 60,
+                'id'    => 45,
                 'title' => 'sales_page_edit',
             ],
             [
-                'id'    => 61,
+                'id'    => 46,
                 'title' => 'sales_page_show',
             ],
             [
-                'id'    => 62,
+                'id'    => 47,
                 'title' => 'sales_page_delete',
             ],
             [
-                'id'    => 63,
+                'id'    => 48,
                 'title' => 'sales_page_access',
             ],
             [
+                'id'    => 49,
+                'title' => 'policy_and_to_create',
+            ],
+            [
+                'id'    => 50,
+                'title' => 'policy_and_to_edit',
+            ],
+            [
+                'id'    => 51,
+                'title' => 'policy_and_to_show',
+            ],
+            [
+                'id'    => 52,
+                'title' => 'policy_and_to_access',
+            ],
+            [
+                'id'    => 53,
+                'title' => 'tracking_create',
+            ],
+            [
+                'id'    => 54,
+                'title' => 'tracking_edit',
+            ],
+            [
+                'id'    => 55,
+                'title' => 'tracking_show',
+            ],
+            [
+                'id'    => 56,
+                'title' => 'tracking_access',
+            ],
+            [
+                'id'    => 57,
+                'title' => 'coupon_create',
+            ],
+            [
+                'id'    => 58,
+                'title' => 'coupon_edit',
+            ],
+            [
+                'id'    => 59,
+                'title' => 'coupon_show',
+            ],
+            [
+                'id'    => 60,
+                'title' => 'coupon_delete',
+            ],
+            [
+                'id'    => 61,
+                'title' => 'coupon_access',
+            ],
+            [
+                'id'    => 62,
+                'title' => 'template_create',
+            ],
+            [
+                'id'    => 63,
+                'title' => 'template_edit',
+            ],
+            [
                 'id'    => 64,
+                'title' => 'template_access',
+            ],
+            [
+                'id'    => 65,
                 'title' => 'profile_password_edit',
             ],
         ];

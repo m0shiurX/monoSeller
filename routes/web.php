@@ -41,22 +41,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Business Info
     Route::delete('business-infos/destroy', 'BusinessInfoController@massDestroy')->name('business-infos.massDestroy');
-    Route::resource('business-infos', 'BusinessInfoController', ['except' => ['destroy', 'show', 'create', 'store']]);
-
-    // Tracking
-    Route::delete('trackings/destroy', 'TrackingController@massDestroy')->name('trackings.massDestroy');
-    Route::resource('trackings', 'TrackingController');
-
-    // Policy And Tos
-    Route::post('policy-and-tos/media', 'PolicyAndTosController@storeMedia')->name('policy-and-tos.storeMedia');
-    Route::post('policy-and-tos/ckmedia', 'PolicyAndTosController@storeCKEditorImages')->name('policy-and-tos.storeCKEditorImages');
-    Route::resource('policy-and-tos', 'PolicyAndTosController', ['except' => ['destroy', 'show', 'create', 'store']])->parameters([
-        'policy-and-tos' => 'policy-and-tos:id',
-    ]);
-
-    // Coupon
-    Route::delete('coupons/destroy', 'CouponController@massDestroy')->name('coupons.massDestroy');
-    Route::resource('coupons', 'CouponController');
+    Route::resource('business-infos', 'BusinessInfoController');
 
     // Store Settings
     Route::delete('store-settings/destroy', 'StoreSettingsController@massDestroy')->name('store-settings.massDestroy');
@@ -64,9 +49,24 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Sales Page
     Route::delete('sales-pages/destroy', 'SalesPageController@massDestroy')->name('sales-pages.massDestroy');
-    Route::resource('sales-pages', 'SalesPageController')->parameters([
-        'sales-pages' => 'sales-page:id',
-    ]);
+    Route::resource('sales-pages', 'SalesPageController');
+
+    // Policy And Tos
+    Route::post('policy-and-tos/media', 'PolicyAndTosController@storeMedia')->name('policy-and-tos.storeMedia');
+    Route::post('policy-and-tos/ckmedia', 'PolicyAndTosController@storeCKEditorImages')->name('policy-and-tos.storeCKEditorImages');
+    Route::resource('policy-and-tos', 'PolicyAndTosController', ['except' => ['destroy']]);
+
+    // Tracking
+    Route::resource('trackings', 'TrackingController', ['except' => ['destroy']]);
+
+    // Coupon
+    Route::delete('coupons/destroy', 'CouponController@massDestroy')->name('coupons.massDestroy');
+    Route::resource('coupons', 'CouponController');
+
+    // Template
+    Route::post('templates/media', 'TemplateController@storeMedia')->name('templates.storeMedia');
+    Route::post('templates/ckmedia', 'TemplateController@storeCKEditorImages')->name('templates.storeCKEditorImages');
+    Route::resource('templates', 'TemplateController', ['except' => ['show', 'destroy']]);
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password
@@ -76,9 +76,4 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
         Route::post('profile', 'ChangePasswordController@updateProfile')->name('password.updateProfile');
         Route::post('profile/destroy', 'ChangePasswordController@destroy')->name('password.destroyProfile');
     }
-});
-
-
-Route::group(['namespace' => 'Public'], function () {
-    Route::get('/pages/{salesPage:slug}', 'SalesPagesController@show')->name('pages.view');
 });
