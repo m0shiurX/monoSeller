@@ -106,6 +106,16 @@
                             </a>
                         </li>
                     @endcan
+                    @can('template_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.templates.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/templates") || request()->is("admin/templates/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-thermometer c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.template.title') }}
+                            </a>
+                        </li>
+                    @endcan
                     @can('store_setting_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.store-settings.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/store-settings") || request()->is("admin/store-settings/*") ? "c-active" : "" }}">

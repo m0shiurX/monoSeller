@@ -67,6 +67,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('sales-pages', 'SalesPageController')->parameters([
         'sales-pages' => 'sales-page:id',
     ]);
+
+    // Template
+    Route::post('templates/media', 'TemplateController@storeMedia')->name('templates.storeMedia');
+    Route::post('templates/ckmedia', 'TemplateController@storeCKEditorImages')->name('templates.storeCKEditorImages');
+    Route::resource('templates', 'TemplateController', ['except' => ['show', 'destroy']]);
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password
