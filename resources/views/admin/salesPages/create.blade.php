@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<div class="row gap-2">
+<div class="row">
 <div class="card col-lg-6">
     <div class="card-header">
         {{ trans('global.create') }} {{ trans('cruds.salesPage.title_singular') }}
@@ -75,12 +75,57 @@
         </form>
     </div>
 </div>
-<div class="card col-lg-5">
+<div class="card col-lg-5 ml-3">
     <div class="card-header">
-        Select Template
+        Edit template Data
     </div>
     <div class="card-body">
+          <div class="row">
 
+      <div class="col-md-4 col-lg-4 col-sm-4">
+
+        <label>
+          <input type="radio" name="product" selected checked class="card-input-element" />
+
+            <div class="card card-default card-input">
+              <div class="card-header">Product A</div>
+              <div class="card-body">
+                Product specific content
+              </div>
+            </div>
+
+        </label>
+
+      </div>
+      <div class="col-md-4 col-lg-4 col-sm-4">
+
+        <label>
+          <input type="radio" name="product" class="card-input-element" />
+
+            <div class="card card-default card-input">
+              <div class="card-header">Product B</div>
+              <div class="card-body">
+                Product specific content
+              </div>
+            </div>
+        </label>
+
+      </div>
+      <div class="col-md-4 col-lg-4 col-sm-4">
+
+        <label>
+          <input type="radio" name="product" class="card-input-element" />
+
+            <div class="card card-default card-input">
+              <div class="card-header">Product C</div>
+              <div class="card-body">
+                Product specific content
+              </div>
+            </div>
+        </label>
+
+      </div>
+  </div>
     </div>
 </div>
 </div>
