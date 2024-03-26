@@ -19,6 +19,49 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.salesPage.fields.title_helper') }}</span>
             </div>
+            {{-- Select product --}}
+            <div class="form-group">
+                <label class="required" for="product_id">{{ trans('cruds.salesPage.fields.product') }}</label>
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+
+                        <label>
+                        <input type="radio" name="product_id" selected checked class="card-input-element" />
+
+                            <div class="card card-default card-input">
+                                <img  class="card-img-top" alt="..." src="{{ asset('./assets/image.jpg') }}">
+                            <div class="card-header">Product A</div>
+                            </div>
+                        </label>
+
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+
+                        <label>
+                        <input type="radio" name="product_id" class="card-input-element" />
+
+                            <div class="card card-default card-input">
+                                <img  class="card-img-top" alt="..." src="{{ asset('./assets/image.jpg') }}">
+                            <div class="card-header">Product B</div>
+                            </div>
+                        </label>
+
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+
+                        <label>
+                        <input type="radio" name="product_id" class="card-input-element" />
+
+                            <div class="card card-default card-input">
+                                <img  class="card-img-top" alt="..." src="{{ asset('./assets/image.jpg') }}">
+                            <div class="card-header">Product C</div>
+                            </div>
+                        </label>
+
+                    </div>
+                </div>
+            </div>
+            {{-- End of product selection --}}
             <div class="form-group">
                 <label class="required" for="product_id">{{ trans('cruds.salesPage.fields.product') }}</label>
                 <select class="form-control select2 {{ $errors->has('product') ? 'is-invalid' : '' }}" name="product_id" id="product_id" required>
@@ -80,52 +123,8 @@
         Edit template Data
     </div>
     <div class="card-body">
-          <div class="row">
-
-      <div class="col-md-4 col-lg-4 col-sm-4">
-
-        <label>
-          <input type="radio" name="product" selected checked class="card-input-element" />
-
-            <div class="card card-default card-input">
-              <div class="card-header">Product A</div>
-              <div class="card-body">
-                Product specific content
-              </div>
-            </div>
-
-        </label>
-
-      </div>
-      <div class="col-md-4 col-lg-4 col-sm-4">
-
-        <label>
-          <input type="radio" name="product" class="card-input-element" />
-
-            <div class="card card-default card-input">
-              <div class="card-header">Product B</div>
-              <div class="card-body">
-                Product specific content
-              </div>
-            </div>
-        </label>
-
-      </div>
-      <div class="col-md-4 col-lg-4 col-sm-4">
-
-        <label>
-          <input type="radio" name="product" class="card-input-element" />
-
-            <div class="card card-default card-input">
-              <div class="card-header">Product C</div>
-              <div class="card-body">
-                Product specific content
-              </div>
-            </div>
-        </label>
-
-      </div>
-  </div>
+        <div class="row">
+        </div>
     </div>
 </div>
 </div>

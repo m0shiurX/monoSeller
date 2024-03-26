@@ -67,8 +67,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('sales-pages', 'SalesPageController')->parameters([
         'sales-pages' => 'sales-page:id',
     ]);
+    Route::post('/update-template-content', 'SalesPageController@updateTemplateContent')->name('update_template_content');
 
     // Template
+    Route::post('/load-template-fields', 'TemplateController@loadTemplateFields')->name('load_template_fields');
+
     Route::post('templates/media', 'TemplateController@storeMedia')->name('templates.storeMedia');
     // Route::post('templates/ckmedia', 'TemplateController@storeCKEditorImages')->name('templates.storeCKEditorImages');
     Route::resource('templates', 'TemplateController', ['except' => ['show', 'destroy']]);

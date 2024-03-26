@@ -83,4 +83,28 @@ class TemplateController extends Controller
 
     //     return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     // }
+
+    public function loadTemplateFields(Request $request)
+    {
+        $templateId = $request->input('template_id');
+        $template = Template::findOrFail($templateId);
+        $templateFields = json_decode($template->template_fields, true);
+
+        $formFields = '';
+        foreach ($templateFields as $field) {
+            $fieldName = $field['name'];
+            $fieldType = $field['type'];
+            $fieldPlaceholder = $field['placeholder'];
+
+            // Generate form input elements based on field type
+            if ($fieldType === 'text') {
+                $formFields .= "<input class='form-control' type='text' name='$fieldName' placeholder='$fieldPlaceholder' required><br>";
+            } elseif ($fieldType === 'textarea') {
+                $formFields .= "<textarea class='form-control' name='$fieldName' placeholder='$fieldPlaceholder' required></textarea><br>";
+            }
+            // Add more conditions for other field types if needed
+        }
+
+        return response()->json(['form_fields' => $formFields]);
+    }
 }

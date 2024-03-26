@@ -27,6 +27,7 @@ class SalesPage extends Model
         'title',
         'slug',
         'product_id',
+        'template_id',
         'header_script',
         'footer_script',
         'template_content',
@@ -65,5 +66,9 @@ class SalesPage extends Model
     public function product()
     {
         return $this->belongsTo(Product::class, 'product_id');
+    }
+    public function template()
+    {
+        return $this->belongsTo(Template::class, 'template_id');
     }
 }

@@ -90,70 +90,76 @@
 </div>
 <div class="card col">
     <div class="card-header">
-        Select Template
+        Update Template Content
     </div>
-    <div class="card-body d-flex flex-wrap">
-        <div class="card text-bg-primary mb-3 mr-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-                <h5 class="card-title">Primary card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div class="card-body">
+        <form id="template_content" action="">
+            <input type="hidden" name="sales_page_id" value="{{$salesPage->id}}">
+            <div id="required-fields-section">
             </div>
-        </div>
-        <div class="card text-bg-secondary mb-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-            <h5 class="card-title">Secondary card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-        <div class="card text-bg-success mb-3 mr-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-            <h5 class="card-title">Success card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-        <div class="card text-bg-danger mb-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-            <h5 class="card-title">Danger card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-        <div class="card text-bg-warning mb-3 mr-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-            <h5 class="card-title">Warning card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-        <div class="card text-bg-info mb-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-            <h5 class="card-title">Info card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-        <div class="card text-bg-light mb-3 mr-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-            <h5 class="card-title">Light card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-        <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-
-
+            <button class="btn btn-success" id="template_content_button">
+                Save Content
+            </button>
+        </form>
     </div>
 </div>
 </div>
+@endsection
 
+@section('scripts')
+{{-- @parent --}}
+<script>
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+$('#template_id').change(function() {
+    var templateId = $(this).val();
 
+    $.ajax({
+        type: 'POST',
+        url: '{{ route("admin.load_template_fields") }}',
+        data: {
+            template_id: templateId
+        },
+        success: function(response) {
+            $('#required-fields-section').html(response.form_fields);
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+    });
+});
+$('#template_content_button').click(function(e) {
+    e.preventDefault();
+    updateTemplateContent();
+});
+
+// Function to update template content
+function updateTemplateContent() {
+    // Serialize the entire form data including template ID
+    var formData = $('#template_content').serializeArray();
+    var templateId = $('#template_id').val();
+    formData.push({name: 'template_id', value: templateId}); // Add template ID to form data
+    console.log(formData);
+
+    var jsonData = JSON.stringify(formData);
+    console.log(jsonData);
+    
+    // Send AJAX request to update template_content
+    $.ajax({
+        type: 'POST',
+        url: '{{ route("admin.update_template_content") }}',
+        data: formData, // Send entire form data including template ID
+        success: function(response) {
+            console.log('Template content updated successfully');
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+    });
+}
+
+</script>
 @endsection

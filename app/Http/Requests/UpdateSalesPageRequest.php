@@ -29,6 +29,10 @@ class UpdateSalesPageRequest extends FormRequest
                 'required',
                 'integer',
             ],
+            'template_id' => [
+                'required',
+                'integer',
+            ],
         ];
     }
 }
