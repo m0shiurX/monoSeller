@@ -1,4 +1,12 @@
 @extends('themes.default.layout')
+@section('title', $salesPage->title)
+
+{{-- user provided header script --}}
+@section('header_script')
+{!! $salesPage->header_script !!}
+@endsection
+
+
 @section('content')
 <div class="container pb-20">
     <div class="flex justify-center">
@@ -8,6 +16,9 @@
       <h4> </h4>
       <h1 class="mb-4 text-green-800"> স্মার্ট সেলারদের জন্য স্মার্ট সমাধান </h1>
       <h2 class="mt-1"> টেম্প্লেট নির্বাচন করুন </h2>
+      <p>
+        {{ json_encode($salesPage->template_content)}}
+      </p>
     </div>
     <div class="max-w-2xl mx-auto grid grid-cols-2 gap-12 mt-5">
       <div class="card glass hover:border-spacing-6 hover:border-4 hover:border-red-800 hover:shadow-lg">
@@ -42,4 +53,9 @@
   </footer>
   <!-- CONTENT SECTION END -->
   <script type="module" src="{{ asset('assets/main.js') }}"></script>
+@endsection
+
+{{-- user provided footer script --}}
+@section('footer_script')
+{!! $salesPage->footer_script !!}
 @endsection
