@@ -20,7 +20,7 @@ class Template extends Model implements HasMedia
         'preview_image',
     ];
     protected $casts = [
-        'template_fields' => 'array',
+        'template_fields' => 'json',
     ];
 
     protected $dates = [
