@@ -9,6 +9,7 @@ class SalesPagesController extends Controller
 {
     public function show(SalesPage $salesPage)
     {
+        
         // dd($salesPage);
         return view('themes.default.index', compact('salesPage'));
     }

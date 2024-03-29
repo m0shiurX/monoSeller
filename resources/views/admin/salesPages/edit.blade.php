@@ -142,11 +142,9 @@ function updateTemplateContent() {
     var formData = $('#template_content').serializeArray();
     var templateId = $('#template_id').val();
     formData.push({name: 'template_id', value: templateId}); // Add template ID to form data
-    console.log(formData);
 
     var jsonData = JSON.stringify(formData);
-    console.log(jsonData);
-    
+
     // Send AJAX request to update template_content
     $.ajax({
         type: 'POST',

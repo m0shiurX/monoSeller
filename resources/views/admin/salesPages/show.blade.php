@@ -49,6 +49,22 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.salesPage.fields.template') }}
+                        </th>
+                        <td>
+                            {{ $salesPage->template->name }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.salesPage.fields.template_content') }}
+                        </th>
+                        <td>
+                            {{ json_encode($salesPage->template_content) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.salesPage.fields.header_script') }}
                         </th>
                         <td>

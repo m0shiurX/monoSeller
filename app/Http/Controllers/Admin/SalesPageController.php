@@ -91,11 +91,11 @@ class SalesPageController extends Controller
     public function updateTemplateContent(Request $request)
     {
         $salesPageId = $request->input('sales_page_id');
-        $templateContent = $request->input('Heading');
+        $templateContent = $request->except(['sales_page_id']);
 
         $salesPage = SalesPage::findOrFail($salesPageId);
-        $templateContentArray = json_decode($templateContent, true);
-        $salesPage->template_content = $templateContentArray;
+        // $templateContentArray = json_decode($templateContent, true);
+        $salesPage->template_content = $templateContent;
         $salesPage->save();
 
         return response()->json(['message' => 'Template content updated successfully']);
