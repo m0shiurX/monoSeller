@@ -16,3 +16,30 @@
     [x] 1. global header script
     [x] 2. global footer script
 [x] - Privacy Policy & ToS
+
+
+
+
+
+<!-- Menu Formation -->
+Roles
+  Members
+  Roles
+  Permissions
+Pages
+  Sales Pages
+Dashboard
+Store
+  Products
+  Order
+  Cupons
+  Templates
+  Store Config (Delivery Charges)
+Leads
+Customers
+Settings
+  Business Info
+  Tracking
+  Privacy Policy
+  Change Password
+  Logout

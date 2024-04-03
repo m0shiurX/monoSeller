@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .tw-menu-btn {
+        @apply tw-flex tw-size-12 tw-items-center tw-justify-center tw-rounded-2xl tw-transition-colors tw-duration-300 hover:tw-bg-accent/60 tw-text-white tw-tooltip tw-tooltip-right tw-bg-primary/10;
+    }
+    .tw-active-menu-btn {
+        @apply tw-bg-accent/40 dark:tw-bg-accent;
+    }
+    .tw-active-group {
+        @apply tw-bg-accent/10 dark:tw-bg-accent tw-rounded-md;
+    }
+    .sub-menu {
+	    @apply tw-hidden tw-space-y-1;
+	}
+    .tw-active-menu {
+        @apply !tw-flex;
+    }
+    .tw-menu-link {
+        @apply hover:tw-text-accent hover:tw-bg-accent/40 hover:tw-no-underline focus:tw-outline-none focus:tw-text-accent focus:tw-bg-accent/40 focus:tw-ring focus:tw-ring-accent/40 focus-within:tw-outline-none focus-within:tw-ring focus-within:tw-ring-accent/40 active:tw-text-accent;
+    }
+    .tw-active-link {
+        @apply tw-text-white tw-bg-accent/30;
+    }
+
+
+}
+

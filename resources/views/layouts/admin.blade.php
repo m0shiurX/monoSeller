@@ -22,22 +22,36 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.min.css" rel="stylesheet" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
-    @vite('resources/css/app.css')
     @yield('styles')
+    @vite('resources/css/app.css')
 </head>
 
 <body class="c-app">
     @include('partials.menu')
-    <div class="c-wrapper">
-        <header class="c-header c-header-fixed px-3">
-            <button class="c-header-toggler c-class-toggler d-lg-none mfe-auto" type="button" data-target="#sidebar" data-class="c-sidebar-show">
-                <i class="fas fa-fw fa-bars"></i>
+    <div class="c-wrapper tw-bg-primary">
+        <header class="c-header tw-border-b  tw-border-primary/20 c-header-fixed px-3 tw-bg-primary tw-text-secondary">
+            <button class="c-header-toggler c-class-toggler d-lg-none mfe-./auto" type="button" data-target="#sidebar" data-class="c-sidebar-show">
+                <div class="tw-relative tw-size-5">
+                    <span
+                        class="tw-block tw-top-0.5 tw-absolute tw-bg-secondary tw-w-full tw-h-0.5 tw-transition-all tw-duration-300"></span>
+                    <span
+                        class="tw-block tw-top-1/2 tw-absolute tw-bg-secondary tw-w-full tw-max-w-[50%] tw-h-0.5 tw-transition-all tw-duration-300"></span>
+                    <span
+                        class="tw-block tw-bottom-0 tw-absolute tw-bg-secondary tw-w-full tw-h-0.5 tw-transition-all tw-duration-300"></span>
+                </div>
             </button>
 
             <a class="c-header-brand d-lg-none" href="#">{{ trans('panel.site_title') }}</a>
 
             <button class="c-header-toggler mfs-3 d-md-down-none" type="button" responsive="true">
-                <i class="fas fa-fw fa-bars"></i>
+                <div class="tw-relative tw-size-5">
+                    <span
+                        class="tw-block tw-top-0.5 tw-absolute tw-bg-secondary tw-w-full tw-h-0.5 tw-transition-all tw-duration-300"></span>
+                    <span
+                        class="tw-block tw-top-1/2 tw-absolute tw-bg-secondary tw-w-full tw-max-w-[50%] tw-h-0.5 tw-transition-all tw-duration-300"></span>
+                    <span
+                        class="tw-block tw-bottom-0 tw-absolute tw-bg-secondary tw-w-full tw-h-0.5 tw-transition-all tw-duration-300"></span>
+                </div>
             </button>
 
             <ul class="c-header-nav ml-auto">
@@ -90,6 +104,16 @@
             </form>
         </div>
     </div>
+    {{-- Will change the themes here from #change_theme --}}
+    <dialog id="swatches" class="tw-modal">
+        <div class="tw-modal-box">
+            <h3 class="tw-font-bold tw-text-lg">Hello!</h3>
+            <p class="tw-py-4">Press ESC key or click outside to close</p>
+        </div>
+        <form method="dialog" class="tw-modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> --}}
     {{-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> --}}
@@ -229,7 +253,9 @@
 });
 
     </script>
+    @vite('resources/js/app.js')
     @yield('scripts')
+
 </body>
 
 </html>
